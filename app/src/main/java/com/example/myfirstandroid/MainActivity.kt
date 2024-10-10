@@ -1,6 +1,7 @@
 package com.example.myfirstandroid
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -26,6 +27,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         setContentView(R.layout.activity_main)
+
+        val fragmentManager = supportFragmentManager
+        val homeFragment = BlankFragment()
+        val fragment = fragmentManager.findFragmentByTag(BlankFragment::class.java.simpleName)
+        if (fragment !is BlankFragment) {
+            Log.d("MyFlexibleFragment", "Fragment Name :" + BlankFragment::class.java.simpleName)
+            fragmentManager
+                .beginTransaction()
+                .add(R.id.frame_container, homeFragment, BlankFragment::class.java.simpleName)
+                .commit()
+        }
+
         edtWidth = findViewById(R.id.edt_width)
         edtHeight = findViewById(R.id.edt_height)
         edtLength = findViewById(R.id.edt_length)

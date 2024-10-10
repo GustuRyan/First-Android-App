@@ -57,4 +57,12 @@
         android:text="@string/result"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        tools:ignore="InvalidId">
+    </ScrollView>
 </LinearLayout>
